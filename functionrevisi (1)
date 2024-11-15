@@ -1,0 +1,36 @@
+def inputan(nilai):
+    watt = int(input(f"Masukkan watt {nilai}: "))
+    durasi = int(input(f"Masukkan waktu pemakaian {nilai}: "))
+    return watt, durasi
+
+def proses_hitung(watt, durasi):
+    hitung_energi = watt * durasi
+    hitung_kwh = hitung_energi / 1000
+    hitung_harga = hitung_kwh * 1500
+    return hitung_harga
+
+def hitung_total(biaya1, biaya2, biaya3):
+    total_per_hari = biaya1 + biaya2 + biaya3
+    total_per_bulan = total_per_hari * 30
+    return total_per_hari, total_per_bulan
+
+# Program utama
+watt_1, durasi_1 = inputan("kipas")
+watt_2, durasi_2 = inputan("TV")
+watt_3, durasi_3 = inputan("lampu")
+
+
+proses_1 = proses_hitung(watt_1, durasi_1)
+proses_2 = proses_hitung(watt_2, durasi_2)
+proses_3 = proses_hitung(watt_3, durasi_3)
+
+total_per_hari, total_per_bulan = hitung_total(proses_1, proses_2, proses_3)
+
+print()
+print("=== Ringkasan Penggunaan Listrik ===")
+print(f"Biaya pemakaian kipas: Rp {proses_1}")
+print(f"Biaya pemakaian TV: Rp {proses_2}")
+print(f"Biaya pemakaian lampu: Rp {proses_3}")
+
+print("Total dalam satu hari adalah: Rp", total_per_hari)
+print("Total dalam satu bulan adalah: Rp", total_per_bulan)
